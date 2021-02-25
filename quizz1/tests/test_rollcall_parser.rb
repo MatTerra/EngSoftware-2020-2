@@ -30,13 +30,13 @@ class TestRollcallParser < Test::Unit::TestCase
 
   def test_should_parse_1
     parser=RollcallParser.new('tests/engsoft.txt')
-    assert_equal("18/0114913\tADELSON JHONATA SILVA DE SOUSA\n",
+    assert_equal("18/0114913\tADELSON JHONATA SILVA DE SOUSA\n".encode!('iso-8859-1'),
                  parser.parse(n=1))
   end
 
   def test_should_parse_2
     parser=RollcallParser.new('tests/engsoft.txt')
-    assert_equal("18/0114913\tADELSON JHONATA SILVA DE SOUSA\n17/0056082\tANA PAULA MARTINS TARCHETTI\n",
+    assert_equal("18/0114913\tADELSON JHONATA SILVA DE SOUSA\n17/0056082\tANA PAULA MARTINS TARCHETTI\n".encode!('iso-8859-1'),
                  parser.parse(n=2))
   end
 

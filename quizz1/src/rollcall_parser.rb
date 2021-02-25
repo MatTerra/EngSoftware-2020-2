@@ -26,7 +26,7 @@ class RollcallParser
   private
 
   def read_file_content
-    file = File.open(@file_name)
+    file = File.open(@file_name, :encoding => 'iso-8859-1')
     @file_content = file.read
     file.close
   end
@@ -43,7 +43,7 @@ class RollcallParser
 
   def remove_extra_whitespace
     @file_lines.map! do |line|
-      line.gsub(/\s+/, ' ').gsub(/^\s+/, '')
+      line.gsub(/\s+/, ' ').gsub(/^\s+/, '').gsub(/\s+$/, '')
     end
   end
 
